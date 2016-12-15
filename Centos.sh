@@ -40,7 +40,10 @@ sudo useradd seluser --shell /bin/bash --create-home \
 yum update -y \
   && yum -y install \
     Xvfb libXfont Xorg \
+  && yum -y groupinstall "X Window System" "Desktop" "Fonts" "General Purpose Desktop"\
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+  
+
 
 #============================================
 # Google Chrome
