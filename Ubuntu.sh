@@ -50,7 +50,16 @@ apt-get update -qqy \
     xvfb \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
-  
+#============================================
+# Google Chrome
+#============================================
+# can specify versions by CHROME_VERSION;
+#  e.g. google-chrome-stable=53.0.2785.101-1
+#       google-chrome-beta=53.0.2785.92-1
+#       google-chrome-unstable=54.0.2840.14-1
+#       latest (equivalent to google-chrome-stable)
+#       google-chrome-beta  (pull latest beta)
+#============================================  
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
   && apt-get update -qqy \
@@ -58,7 +67,9 @@ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
   && rm /etc/apt/sources.list.d/google-chrome.list \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
   
-  
+#==================
+# Chrome webdriver
+#==================
 wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip \
   && rm -rf /opt/selenium/chromedriver \
   && unzip /tmp/chromedriver_linux64.zip -d /opt/selenium \
@@ -69,6 +80,9 @@ wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.
 chmod +x /opt/google/chrome/google-chrome
 chown -R seluser:seluser /opt/selenium
 
+#====================================
+# Run Selenium Standalone
+#====================================
 su - seluser -c "nohup xvfb-run -n 99 --server-args=\"-screen 0 1280x1024x24 -ac +extension RANDR\" java -jar /opt/selenium/selenium-server-standalone.jar  -role hub &"
 
 su - seluser -c "nohup xvfb-run -n 98 --server-args=\"-screen 0 1280x1024x24 -ac +extension RANDR\" java -Dwebdriver.chrome.driver=/opt/selenium/chromedriver -jar /opt/selenium/selenium-server-standalone.jar  -role node -hub http://localhost:4444/grid/register/ &"
