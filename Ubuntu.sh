@@ -69,10 +69,7 @@ wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.
 chmod +x /opt/google/chrome/google-chrome
 chown -R seluser:seluser /opt/selenium
 
-su seluser
+su - seluser -c "nohup xvfb-run -n 99 --server-args=\"-screen 0 1280x1024x24 -ac +extension RANDR\" java -jar /opt/selenium/selenium-server-standalone.jar  -role hub &"
 
-nohup xvfb-run -n 99 --server-args="-screen 0 1280x1024x24 -ac +extension RANDR" java -jar /opt/selenium/selenium-server-standalone.jar  -role hub &
-
-nohup xvfb-run -n 98 --server-args="-screen 0 1280x1024x24 -ac +extension RANDR" java -Dwebdriver.chrome.driver=/opt/selenium/chromedriver -jar /opt/selenium/selenium-server-standalone.jar  -role node -hub http://localhost:4444/grid/register/ &
-
+su - seluser -c "nohup xvfb-run -n 98 --server-args=\"-screen 0 1280x1024x24 -ac +extension RANDR\" java -Dwebdriver.chrome.driver=/opt/selenium/chromedriver -jar /opt/selenium/selenium-server-standalone.jar  -role node -hub http://localhost:4444/grid/register/ &"
 
