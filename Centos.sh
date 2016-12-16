@@ -84,7 +84,7 @@ wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.
 # Chrome crx
 #==================
 wget --no-verbose -O /opt/selenium/ModHeader.crx https://raw.githubusercontent.com/speed/newcrawler-plugin-urlfetch-chrome/master/crx/ModHeader.crx\
-    && chmod 755 /opt/selenium/ModHeader.crx \
+    && chmod 755 /opt/selenium/ModHeader.crx
 
 chmod +x /opt/google/chrome/google-chrome
 chown -R seluser:seluser /opt/selenium
