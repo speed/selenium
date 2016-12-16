@@ -12,5 +12,5 @@ wget --no-check-certificate --no-verbose https://raw.githubusercontent.com/speed
 
 ```
 wget --no-check-certificate --no-verbose https://raw.githubusercontent.com/speed/selenium/master/Centos.sh \
-  && sh Ubuntu.sh
+  && sh Centos.sh
 ```
