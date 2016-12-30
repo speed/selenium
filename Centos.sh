@@ -92,6 +92,11 @@ chown -R seluser:seluser /opt/selenium
 #====================================
 # Run Selenium Standalone
 #====================================
-su - seluser -c "nohup xvfb-run -n 99 --server-args=\"-screen 0 1280x1024x24 -ac +extension RANDR\" java -jar /opt/selenium/selenium-server-standalone.jar  -role hub &"
+#su - seluser -c "nohup xvfb-run -n 99 --server-args=\"-screen 0 1024x768x8 -ac +extension RANDR\" java -jar /opt/selenium/selenium-server-standalone.jar  -role hub &"
 
-su - seluser -c "nohup xvfb-run -n 98 --server-args=\"-screen 0 1280x1024x24 -ac +extension RANDR\" java -Dwebdriver.chrome.driver=/opt/selenium/chromedriver -jar /opt/selenium/selenium-server-standalone.jar  -role node -hub http://localhost:4444/grid/register/ &"
+#http://127.0.0.1:5555/wd/hub
+#su - seluser -c "nohup xvfb-run -n 98 --server-args=\"-screen 0 1024x768x8 -ac +extension RANDR\" java -Dwebdriver.chrome.driver=/opt/selenium/chromedriver -jar /opt/selenium/selenium-server-standalone.jar  -role node -hub http://localhost:4444/grid/register/ &"
+
+#http://127.0.0.1:4444/wd/hub
+su - seluser -c "nohup xvfb-run -n 99 --server-args=\"-screen 0 1024x768x8 -ac +extension RANDR\" java -jar /opt/selenium/selenium-server-standalone.jar &"
+
