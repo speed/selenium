@@ -43,13 +43,9 @@ mkdir -p /opt/selenium  \
 
 Chrome
 ``` bash
-$ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.11.0-antimony
-#OR
-$ docker run -d -p 4444:4444 --shm-size=2g selenium/standalone-chrome:3.11.0-antimony
+$ docker run -d -p 4444:4444 --net=host --name=chrome -e JAVA_OPTS=-Xmx512m --shm-size=1g selenium/standalone-chrome:3.11.0-antimony
 ```
 Firefox
 ``` bash
-$ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.11.0-antimony
-#OR
-$ docker run -d -p 4444:4444 --shm-size 2g selenium/standalone-firefox:3.11.0-antimony
+$ docker run -d -p 4444:4444 --net=host --name=chrome -e JAVA_OPTS=-Xmx512m --shm-size=1g selenium/standalone-firefox:3.11.0-antimony
 ```
