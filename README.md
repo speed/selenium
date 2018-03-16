@@ -29,3 +29,21 @@ wget --no-check-certificate --no-verbose https://raw.githubusercontent.com/speed
 wget --no-check-certificate --no-verbose https://raw.githubusercontent.com/speed/selenium/master/Centos.sh \
   && sh Centos.sh
 ```
+
+
+#### Docker chrome
+https://github.com/SeleniumHQ/docker-selenium
+
+
+Chrome
+``` bash
+$ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.11.0-antimony
+#OR
+$ docker run -d -p 4444:4444 --shm-size=2g selenium/standalone-chrome:3.11.0-antimony
+```
+Firefox
+``` bash
+$ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.11.0-antimony
+#OR
+$ docker run -d -p 4444:4444 --shm-size 2g selenium/standalone-firefox:3.11.0-antimony
+```
