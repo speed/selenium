@@ -35,9 +35,11 @@ wget --no-check-certificate --no-verbose https://raw.githubusercontent.com/speed
 https://github.com/SeleniumHQ/docker-selenium
 
 Chrome plugin
+```bash
 mkdir -p /opt/selenium  \
  && wget --no-verbose -O /opt/selenium/ModHeader.crx https://raw.githubusercontent.com/speed/newcrawler-plugin-urlfetch-chrome/master/crx/ModHeader.crx\
     && chmod 755 /opt/selenium/ModHeader.crx
+```
 
 Chrome
 ``` bash
