@@ -23,9 +23,11 @@ yum update -y \
 # Selenium
 # https://www.seleniumhq.org/download/
 #==========
+seleniumlastrelease=`curl --silent 'https://www.seleniumhq.org/download/' | grep -o -E 'Download version <a href=".*+">.*+</a>' | grep -o -E 'https://[^"]*'`
+ 
 mkdir -p /opt/selenium \
   && rm -rf /opt/selenium/selenium-server-standalone.jar \
-  && wget --no-verbose "https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar" -O /opt/selenium/selenium-server-standalone.jar
+  && wget --no-verbose $seleniumlastrelease -O /opt/selenium/selenium-server-standalone.jar
 
 #========================================
 # Add normal user with passwordless sudo
