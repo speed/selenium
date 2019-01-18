@@ -25,7 +25,7 @@ yum update -y \
 #==========
 mkdir -p /opt/selenium \
   && rm -rf /opt/selenium/selenium-server-standalone.jar \
-  && wget --no-verbose https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar -O /opt/selenium/selenium-server-standalone.jar
+  && wget --no-verbose "https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar" -O /opt/selenium/selenium-server-standalone.jar
 
 #========================================
 # Add normal user with passwordless sudo
@@ -76,7 +76,8 @@ yum update -y \
 # Chrome webdriver
 # http://chromedriver.chromium.org/downloads
 #==================
-wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/2.45/chromedriver_linux64.zip \
+chromedriverlastrelease=`curl --silent 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE'`
+wget --no-verbose -O /tmp/chromedriver_linux64.zip "https://chromedriver.storage.googleapis.com/$chromedriverlastrelease/chromedriver_linux64.zip" \
   && rm -rf /opt/selenium/chromedriver \
   && unzip /tmp/chromedriver_linux64.zip -d /opt/selenium \
   && rm -rf /tmp/chromedriver_linux64.zip \
@@ -86,7 +87,7 @@ wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.
 #==================
 # Chrome crx
 #==================
-wget --no-verbose -O /opt/selenium/ModHeader.crx https://raw.githubusercontent.com/speed/newcrawler-plugin-urlfetch-chrome/master/crx/ModHeader.crx\
+wget --no-verbose -O /opt/selenium/ModHeader.crx "https://raw.githubusercontent.com/speed/newcrawler-plugin-urlfetch-chrome/master/crx/ModHeader.crx"\
     && chmod 755 /opt/selenium/ModHeader.crx
 
 chmod +x /opt/google/chrome/google-chrome
