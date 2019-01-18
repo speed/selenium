@@ -76,7 +76,7 @@ yum update -y \
 # Chrome webdriver
 # http://chromedriver.chromium.org/downloads
 #==================
-wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/2.43/chromedriver_linux64.zip \
+wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/2.45/chromedriver_linux64.zip \
   && rm -rf /opt/selenium/chromedriver \
   && unzip /tmp/chromedriver_linux64.zip -d /opt/selenium \
   && rm -rf /tmp/chromedriver_linux64.zip \
