@@ -11,7 +11,7 @@
 ```
 
 ```
-wget --no-check-certificate --no-verbose https://raw.githubusercontent.com/speed/selenium/master/Ubuntu.sh \
+wget --no-check-certificate --no-verbose https://raw.githubusercontent.com/speed/selenium/master/Ubuntu.sh -O Selenium-Chrome.sh \
   && sh Selenium-Chrome.sh
 ```
 
@@ -26,7 +26,7 @@ wget --no-check-certificate --no-verbose https://raw.githubusercontent.com/speed
 ```
 
 ```
-wget --no-check-certificate --no-verbose https://raw.githubusercontent.com/speed/selenium/master/Centos.sh \
+wget --no-check-certificate --no-verbose https://raw.githubusercontent.com/speed/selenium/master/Centos.sh -O Selenium-Chrome.sh \
   && sh Selenium-Chrome.sh
 ```
 
