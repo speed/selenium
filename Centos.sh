@@ -70,6 +70,7 @@ gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
 EOF
 
 yum update -y \
+  && yum -y remove google-chrome-stable \
   && yum -y install google-chrome-stable \
   && rm -rf /etc/yum.repos.d/google-chrome.repo \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
@@ -89,7 +90,8 @@ wget --no-verbose -O /tmp/chromedriver_linux64.zip "https://chromedriver.storage
 #==================
 # Chrome crx
 #==================
-wget --no-verbose -O /opt/selenium/ModHeader.crx "https://raw.githubusercontent.com/speed/newcrawler-plugin-urlfetch-chrome/master/crx/ModHeader.crx"\
+rm -rf /opt/selenium/ModHeader.crx \
+    && wget --no-verbose -O /opt/selenium/ModHeader.crx "https://raw.githubusercontent.com/speed/newcrawler-plugin-urlfetch-chrome/master/crx/ModHeader.crx"\
     && chmod 755 /opt/selenium/ModHeader.crx
 
 chmod +x /opt/google/chrome/google-chrome
