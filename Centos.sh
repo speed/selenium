@@ -8,6 +8,9 @@
 # Includes minimal runtime used for executing non GUI Java programs
 #========================
 
+ps -ef | grep selenium | grep -v grep | cut -c 9-15 | xargs kill -s 9
+ps -ef | grep chrome | grep -v grep | cut -c 9-15 | xargs kill -s 9
+
 yum update -y \
   && yum -y install \
     bzip2 \
